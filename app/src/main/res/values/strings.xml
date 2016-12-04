@@ -8,7 +8,19 @@
     <string name="forgot_password">Forgot your password ?</string>
     <string name="no_account">Don\'t have an account yet ?</string>
 
+    <string name="no_username">Username cannot be empty.</string>
+    <string name="invalid_username">Username must be a valid email address.</string>
+    <string name="empty_password">Password cannot be empty.</string>
+    <string name="wrong_password_length">Password must contain at lest 8 characters.</string>
+    <string name="user_authentication_message">Authenticating user...</string>
+    <!-- ############################ -->
+
+
     <!-- Sign Up Screen -->
     <string name="sign_up">Sign Up</string>
+    <string name="name">Name</string>
+    <string name="email">E-mail</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="contact_number">Contact number</string>
 
 </resources>

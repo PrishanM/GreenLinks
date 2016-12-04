@@ -10,10 +10,15 @@ public class ValidatorUtil {
     }
 
     public static boolean isValidTextLength(String text,int length){
-        if(text.length()!=length){
+        if(text.length()<length){
             return false;
         }else {
             return true;
         }
     }
+
+    public static boolean isValidEmailAddress(String email){
+        return android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches();
+    }
+
 }
