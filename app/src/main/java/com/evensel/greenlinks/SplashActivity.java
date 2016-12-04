@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
+import com.evensel.greenlinks.user.LoginActivity;
+
 import java.util.ArrayList;
 import java.util.List;
 

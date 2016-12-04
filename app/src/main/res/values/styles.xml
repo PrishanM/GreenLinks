@@ -8,4 +8,37 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <!-- Text Appearance -->
+    <style name="BaseTextLarge" parent="@android:style/TextAppearance.Large">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <style name="BaseTextMedium" parent="@android:style/TextAppearance.Medium">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <style name="BaseTextSmall" parent="@android:style/TextAppearance.Small">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+    </style>
+
+    <!-- Edit Text common -->
+    <style name="AppEditText" parent="android:Widget.EditText">
+        <item name="android:textColor">@color/colorTextPrimary</item>
+        <item name="android:textSize">@dimen/font_large</item>
+    </style>
+
+    <!-- Button Common -->
+    <style name="AppButton" parent="android:Widget.Button">
+        <item name="android:backgroundTint">@color/colorAccent</item>
+        <item name="android:textColor">@color/colorWhite</item>
+        <item name="android:textSize">@dimen/font_xlarge</item>
+    </style>
+
+    <!-- Button Common Hollow-->
+    <style name="AppButtonHollow" parent="android:Widget.Button">
+        <item name="android:background">@drawable/cornered_button</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:textSize">@dimen/font_xlarge</item>
+    </style>
+
 </resources>
