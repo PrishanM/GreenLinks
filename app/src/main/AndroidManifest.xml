@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.evensel.greenlinks">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -30,6 +33,24 @@
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".user.SignUpActivity" />
+
+        </activity>
+
+        <activity
+            android:name=".user.VerifyAccountActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
+
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".user.VerifyAccountActivity" />
+
+        </activity>
+
+        <activity
+            android:name=".base.BaseActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan">
 
         </activity>
     </application>

@@ -14,6 +14,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import com.evensel.greenlinks.R;
+import com.evensel.greenlinks.base.BaseActivity;
 import com.evensel.greenlinks.utils.Constatnts;
 import com.evensel.greenlinks.utils.ValidatorUtil;
 
@@ -71,7 +72,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     @Override
     public void onClick(View v) {
-        Drawable d= getResources().getDrawable(R.drawable.ic_action_error,null);
+        Drawable d= getResources().getDrawable(R.drawable.ic_action_error);
         d.setBounds(0, 0,d.getIntrinsicWidth(), d.getIntrinsicHeight());
         if(v.getId()==R.id.btnLogin){
             boolean isValidInput = true;
@@ -87,16 +88,21 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             if(ValidatorUtil.isEmptyText(password.getText().toString())){
                 isValidInput = false;
                 password.setError(getString(R.string.empty_password),d);
-            }else if(ValidatorUtil.isValidTextLength(password.getText().toString(), Constatnts.PASSWORD_LENGTH)){
-                isValidInput = false;
-                password.setError(getString(R.string.wrong_password_length),d);
+            }else{
+                boolean val = ValidatorUtil.isValidTextLength(password.getText().toString(), Constatnts.PASSWORD_LENGTH);
+                if(!val){
+                    isValidInput = false;
+                    password.setError(getString(R.string.wrong_password_length),d);
+                }
             }
 
             if (isValidInput){
-                progressDialog = new ProgressDialog(context);
+                /*progressDialog = new ProgressDialog(context);
                 progressDialog.setMessage(getString(R.string.user_authentication_message));
                 progressDialog.show();
-                progressDialog.setCanceledOnTouchOutside(true);
+                progressDialog.setCanceledOnTouchOutside(true);*/
+
+                startActivity(new Intent(context, BaseActivity.class));
             }
         }else if(v.getId()==R.id.btnSignUp){
             startActivity(new Intent(context,SignUpActivity.class));

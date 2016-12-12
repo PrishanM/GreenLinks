@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.evensel.greenlinks.user.LoginActivity;
+import com.newrelic.agent.android.NewRelic;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +23,10 @@ public class SplashActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
+
+        NewRelic.withApplicationToken(
+                "AA3652d8443231db3c08edff6bb6aa6e3394bbaf1d"
+        ).start(this.getApplication());
 
         startHandler();
         //Check for Runtime Permissions

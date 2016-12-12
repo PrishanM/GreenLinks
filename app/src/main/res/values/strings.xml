@@ -23,4 +23,78 @@
     <string name="confirm_password">Confirm password</string>
     <string name="contact_number">Contact number</string>
 
+    <!-- ############################ -->
+
+
+    <!-- Verify Account Screen -->
+    <string name="verify_account">Verify Account</string>
+    <string name="verify_string">Verify</string>
+
+    <string name="enter_pin">Enter your 8 digit pin</string>
+    <!-- ############################ -->
+
+
+    <!-- Base Screen -->
+    <string name="request">Request</string>
+    <string name="pickup_request">Place a pickup Request</string>
+    <string name="order_list">Order List</string>
+    <string name="notifications">Notifications</string>
+    <string name="my_account">My Account</string>
+
+
+    <!-- ############################ -->
+
+    <!-- Pickup screen -->
+    <string name="pickup_category">Please pick your category/categories</string>
+    <string name="next">Next</string>
+    <string name="mobile_devices">Mobile Devices</string>
+    <string name="computers">Computers</string>
+    <string name="home_appliances">Home Appliances</string>
+    <string name="hybrid_batteries">Hybrid Batteries</string>
+    <string name="catalytic_converters">Catalytic Converters</string>
+    <string name="use_default_pickup_address">Use default pickup address</string>
+    <string name="number">Number</string>
+    <string name="address_one">Address Line 1</string>
+    <string name="address_two">Address Line 2</string>
+    <string name="submit">Submit</string>
+    <string name="select_date">Select date</string>
+    <string name="select_time">Select time</string>
+    <string name="your_message">Your message (optional)</string>
+
+    <string-array name="province_array">
+        <item>Select Province</item>
+        <item>Western</item>
+        <item>Southern</item>
+        <item>Northern</item>
+        <item>Eastern</item>
+        <item>Sabaragamuwa</item>
+        <item>North Western</item>
+        <item>Uva</item>
+        <item>Central</item>
+        <item>North Central</item>
+    </string-array>
+
+    <string-array name="state_array">
+        <item>Select Province</item>
+        <item>Western</item>
+        <item>Southern</item>
+        <item>Northern</item>
+        <item>Eastern</item>
+    </string-array>
+
+    <!-- ############################ -->
+
+
+    <!-- Order List Screen-->
+    <string name="active">Active</string>
+    <string name="history">History</string>
+    <string name="sort_by">Sort by Date</string>
+    <string name="category">Category</string>
+    <string name="order_no">Order No.</string>
+    <string name="status">Status</string>
+    <string name="string_new">New</string>
+    <string name="updated">Updated</string>
+    <string name="confirmed">Confirmed</string>
+    <string name="picked_up">Picked up</string>
+
 </resources>

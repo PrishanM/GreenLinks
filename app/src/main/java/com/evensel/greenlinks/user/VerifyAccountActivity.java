@@ -16,19 +16,19 @@ import android.widget.TextView;
 import com.evensel.greenlinks.R;
 
 /**
- * Created by Prishan Maduka on 12/4/2016.
+ * Created by Prishan Maduka on 12/10/2016.
  */
-public class SignUpActivity extends AppCompatActivity {
+public class VerifyAccountActivity extends AppCompatActivity {
 
-    private EditText name,email,password,conPassword,contactNumber;
-    private Button btnSignUp;
+    private EditText pin;
+    private Button btnVerify;
     private ProgressDialog progressDialog;
     private Context context;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_up);
+        setContentView(R.layout.activity_verify);
 
         setActionBar();
         initialize();
@@ -38,18 +38,14 @@ public class SignUpActivity extends AppCompatActivity {
     private void initialize() {
         context = this;
 
-        name = (EditText)findViewById(R.id.edtName);
-        email = (EditText)findViewById(R.id.edtEmail);
-        password = (EditText)findViewById(R.id.edtPassword);
-        conPassword = (EditText)findViewById(R.id.edtConfirmPassword);
-        contactNumber = (EditText)findViewById(R.id.edtContactNumber);
+        pin = (EditText)findViewById(R.id.edtPin);
 
-        btnSignUp = (Button)findViewById(R.id.btnSignUp);
+        btnVerify = (Button)findViewById(R.id.btnVerify);
 
-        btnSignUp.setOnClickListener(new View.OnClickListener() {
+        btnVerify.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(context,VerifyAccountActivity.class));
+                startActivity(new Intent(context,LoginActivity.class));
             }
         });
     }
@@ -60,7 +56,7 @@ public class SignUpActivity extends AppCompatActivity {
         View viewActionBar = getLayoutInflater().inflate(R.layout.action_bar_text, null);
         ActionBar.LayoutParams params = new ActionBar.LayoutParams(ActionBar.LayoutParams.WRAP_CONTENT,ActionBar.LayoutParams.MATCH_PARENT, Gravity.CENTER);
         TextView textviewTitle = (TextView) viewActionBar.findViewById(R.id.mytext);
-        textviewTitle.setText(getResources().getString(R.string.sign_up));
+        textviewTitle.setText(getResources().getString(R.string.verify_account));
         abar.setCustomView(viewActionBar, params);
         abar.setDisplayShowCustomEnabled(true);
         abar.setDisplayShowTitleEnabled(false);
