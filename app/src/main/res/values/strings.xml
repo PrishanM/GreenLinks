@@ -89,12 +89,17 @@
     <string name="active">Active</string>
     <string name="history">History</string>
     <string name="sort_by">Sort by Date</string>
-    <string name="category">Category</string>
-    <string name="order_no">Order No.</string>
-    <string name="status">Status</string>
+    <string name="category">Category :</string>
+    <string name="order_no">Order No. :</string>
+    <string name="status">Status :</string>
     <string name="string_new">New</string>
     <string name="updated">Updated</string>
     <string name="confirmed">Confirmed</string>
     <string name="picked_up">Picked up</string>
+    <!-- ############################ -->
+
+
+    <!-- Notifications Screen-->
+    <string name="clear_all"><u>Clear All</u></string>
 
 </resources>

@@ -11,6 +11,7 @@
     <color name="colorGreen">#33cc00</color>
     <color name="colorOrange">#ff9900</color>
     <color name="colorRed">#d40606</color>
+    <color name="colorRow">#f5f5f5</color>
     <color name="colorNotSelectedTab">#e6e6e6</color>
 
 </resources>

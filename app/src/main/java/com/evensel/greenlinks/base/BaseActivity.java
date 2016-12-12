@@ -15,6 +15,7 @@ import android.widget.TextView;
 
 import com.evensel.greenlinks.R;
 import com.evensel.greenlinks.account.AccountFragment;
+import com.evensel.greenlinks.notifications.NotificationsFragment;
 import com.evensel.greenlinks.order.OrderListBaseFragment;
 import com.evensel.greenlinks.pickup.PickUpFragment;
 
@@ -103,6 +104,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
             layoutNotifications.setBackgroundColor(getResources().getColor(R.color.colorAccent));
             layoutMyAccount.setBackgroundColor(getResources().getColor(R.color.colorNotSelectedTab));
             textviewTitle.setText(getString(R.string.notifications));
+            setFragment(new NotificationsFragment());
         }else if(v.getId()==R.id.layoutAccount){
             layoutRequest.setBackgroundColor(getResources().getColor(R.color.colorNotSelectedTab));
             layoutOrderList.setBackgroundColor(getResources().getColor(R.color.colorNotSelectedTab));

@@ -78,6 +78,8 @@
                     android:id="@+id/imgMobileCheck"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
+                    android:src="@drawable/ic_selected"
+                    android:visibility="gone"
                     android:layout_alignRight="@id/imgMobileDevices"
                     android:layout_alignTop="@id/imgMobileDevices"/>
 
@@ -114,6 +116,8 @@
                     android:id="@+id/imgComputerCheck"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
+                    android:src="@drawable/ic_selected"
+                    android:visibility="gone"
                     android:layout_alignRight="@id/imgComputers"
                     android:layout_alignTop="@id/imgComputers"/>
 
@@ -155,6 +159,8 @@
                     android:id="@+id/imgHomeAppCheck"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
+                    android:src="@drawable/ic_selected"
+                    android:visibility="gone"
                     android:layout_alignRight="@id/imgHomeAppliences"
                     android:layout_alignTop="@id/imgHomeAppliences"/>
 
@@ -191,6 +197,8 @@
                     android:id="@+id/imgHybridCheck"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
+                    android:src="@drawable/ic_selected"
+                    android:visibility="gone"
                     android:layout_alignRight="@id/imgHybridBatteries"
                     android:layout_alignTop="@id/imgHybridBatteries"/>
 
@@ -232,6 +240,8 @@
                     android:id="@+id/imgCatalyticCheck"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
+                    android:src="@drawable/ic_selected"
+                    android:visibility="gone"
                     android:layout_alignRight="@id/imgCatalytic"
                     android:layout_alignTop="@id/imgCatalytic"/>
 
