@@ -187,23 +187,28 @@ public class OrderListBaseFragment extends Fragment implements View.OnClickListe
         try {
             Date fDate = dateFormat.parse(fromDate);
             Date tDate = dateFormat.parse(toDate);
+
+
+            Log.d("FROM : ",dateFormat.format(fDate));
+            Log.d("TO : ",dateFormat.format(tDate));
+
             for(int i=0;i<orders.size();i++){
                 try {
                     Date selectedDate = dateFormat.parse(orders.get(i).getPickupDate());
 
-                    if(selectedDate.compareTo(fDate) * selectedDate.compareTo(tDate)>0){
+                    Log.d("SELECTED : ",dateFormat.format(selectedDate));
+
+                    Log.d("ToCompare : ",selectedDate.compareTo(tDate)+"");
+                    Log.d("FromCompare : ",selectedDate.compareTo(fDate)+"");
+                    if(selectedDate.compareTo(fDate) * selectedDate.compareTo(tDate)<=0){
                         filteredList.add(orders.get(i));
-                        //orders.add(AppController.getOrders().get(i));
                     }
                 } catch (ParseException e) {
                     e.printStackTrace();
                 }
 
             }
-            orders.clear();
-            Log.d("xxxxxxxxxx",filteredList.get(0).getPickupDate()+"");
-            orders = filteredList;
-            orderListAdapter.notifyDataSetChanged();
+            listView.setAdapter(new OrderListAdapter(context,filteredList));
         }catch (ParseException e) {
             e.printStackTrace();
         }
