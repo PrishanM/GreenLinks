@@ -9,9 +9,9 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 
 import com.evensel.greenlinks.R;
+import com.evensel.greenlinks.model.Order;
 
-import java.util.ArrayList;
-import java.util.HashMap;
+import java.util.List;
 
 /**
  * @author Prishanm
@@ -20,16 +20,16 @@ import java.util.HashMap;
 class OrderListAdapter extends BaseAdapter{
 
     private final Context con;
-    private HashMap<Integer,ArrayList<String>> ordersList;
+    private List<Order> orders;
 
-    public OrderListAdapter(Context context, HashMap<Integer,ArrayList<String>> orderList){
+    public OrderListAdapter(Context context, List<Order> orderList){
         this.con = context;
-        this.ordersList = orderList;
+        this.orders = orderList;
     }
 
     @Override
     public int getCount() {
-        return ordersList.size();
+        return orders.size();
     }
 
     @Override
@@ -57,18 +57,18 @@ class OrderListAdapter extends BaseAdapter{
         final TextView txtStatus = (TextView)convertView.findViewById(R.id.txtStatus);
         final TextView txtOrder = (TextView)convertView.findViewById(R.id.txtOrderNo);
 
-        txtDate.setText(ordersList.get(position).get(1));
-        txtCategory.setText(ordersList.get(position).get(0));
-        txtStatus.setText(ordersList.get(position).get(3));
-        txtOrder.setText(ordersList.get(position).get(2));
+        txtDate.setText(orders.get(position).getPickupDate());
+        txtCategory.setText(orders.get(position).getCategory());
+        txtStatus.setText(orders.get(position).getOrderStatus());
+        txtOrder.setText(orders.get(position).getOrderNumber());
 
-        if(ordersList.get(position).get(3).equalsIgnoreCase("Now")){
+        if(orders.get(position).getOrderStatus().equalsIgnoreCase("Now")){
             txtStatus.setBackgroundColor(con.getResources().getColor(R.color.colorRed));
-        }else if(ordersList.get(position).get(3).equalsIgnoreCase("Updated")){
+        }else if(orders.get(position).getOrderStatus().equalsIgnoreCase("Updated")){
             txtStatus.setBackgroundColor(con.getResources().getColor(R.color.colorOrange));
-        }else if(ordersList.get(position).get(3).equalsIgnoreCase("Confirmed")){
+        }else if(orders.get(position).getOrderStatus().equalsIgnoreCase("Confirmed")){
             txtStatus.setBackgroundColor(con.getResources().getColor(R.color.colorGreen));
-        }else if(ordersList.get(position).get(3).equalsIgnoreCase("Picked up")){
+        }else if(orders.get(position).getOrderStatus().equalsIgnoreCase("Picked up")){
             txtStatus.setBackgroundColor(con.getResources().getColor(R.color.colorBlue));
         }
 

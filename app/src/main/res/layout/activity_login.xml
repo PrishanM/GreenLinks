@@ -24,6 +24,7 @@
             style="@style/AppEditText"
             android:drawableLeft="@drawable/ic_user"
             android:drawablePadding="@dimen/activity_horizontal_margin"
+            android:inputType="textEmailAddress"
             android:hint="@string/username"/>
 
         <EditText

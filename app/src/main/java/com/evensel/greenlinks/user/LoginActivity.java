@@ -15,7 +15,7 @@ import android.widget.TextView;
 
 import com.evensel.greenlinks.R;
 import com.evensel.greenlinks.base.BaseActivity;
-import com.evensel.greenlinks.utils.Constatnts;
+import com.evensel.greenlinks.utils.Constants;
 import com.evensel.greenlinks.utils.ValidatorUtil;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener{
@@ -89,7 +89,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 isValidInput = false;
                 password.setError(getString(R.string.empty_password),d);
             }else{
-                boolean val = ValidatorUtil.isValidTextLength(password.getText().toString(), Constatnts.PASSWORD_LENGTH);
+                boolean val = ValidatorUtil.isValidTextLength(password.getText().toString(), Constants.PASSWORD_LENGTH);
                 if(!val){
                     isValidInput = false;
                     password.setError(getString(R.string.wrong_password_length),d);

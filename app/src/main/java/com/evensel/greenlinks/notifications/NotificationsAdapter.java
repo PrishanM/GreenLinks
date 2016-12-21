@@ -60,7 +60,7 @@ class NotificationsAdapter extends BaseAdapter{
         final View isRead = (View)convertView.findViewById(R.id.isRead);
 
         if(notificationList.get(position).get(0).equalsIgnoreCase("Read")){
-            isRead.setVisibility(View.GONE);
+            isRead.setVisibility(View.INVISIBLE);
         }else{
             isRead.setVisibility(View.VISIBLE);
         }
