@@ -1,9 +1,11 @@
 package com.evensel.greenlinks.utils;
 
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.app.TimePickerDialog;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+
+import com.evensel.greenlinks.R;
 
 /**
  * Created by Prishan Maduka on 7/23/2016.
@@ -31,7 +33,7 @@ public class TimePickerCustom extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        return new TimePickerDialog(getActivity(), onTimeSet, hour, minute, true);
+        return new TimePickerDialog(getActivity(), R.style.MyDatePickerDialogTheme, onTimeSet, hour, minute, true);
     }
 
 

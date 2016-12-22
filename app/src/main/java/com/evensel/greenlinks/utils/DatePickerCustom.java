@@ -2,8 +2,10 @@ package com.evensel.greenlinks.utils;
 
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.DialogFragment;
 import android.os.Bundle;
-import android.support.v4.app.DialogFragment;
+
+import com.evensel.greenlinks.R;
 
 /**
  * Created by Prishan Maduka on 7/23/2016.
@@ -32,7 +34,7 @@ public class DatePickerCustom extends DialogFragment {
 
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
-        return new DatePickerDialog(getActivity(), onDateSet, year, month, day);
+        return new DatePickerDialog(getActivity(), R.style.MyDatePickerDialogTheme, onDateSet, year, month, day);
     }
 
 

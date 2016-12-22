@@ -33,22 +33,11 @@
                     android:layout_marginBottom="@dimen/space_normal">
 
                     <TextView
-                        android:id="@+id/txtFromDate"
+                        android:id="@+id/txtDateRange"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="0.4"
+                        android:layout_weight="0.8"
                         android:gravity="center_vertical"
-                        android:text="@string/from_date"
-                        android:textSize="@dimen/font_large"/>
-
-
-                    <TextView
-                        android:id="@+id/txtToDate"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="0.4"
-                        android:gravity="center_vertical"
-                        android:text="@string/to_date"
                         android:textSize="@dimen/font_large"/>
 
 
@@ -56,30 +45,15 @@
                         android:id="@+id/imgFilter"
                         android:layout_width="0dp"
                         android:layout_height="30dp"
-                        android:layout_weight="0.2"
-                        android:src="@drawable/ic_filter"/>
+                        android:layout_weight="0.1"
+                        android:src="@drawable/ic_date_range"/>
 
-                    <!--<LinearLayout
+                    <ImageView
+                        android:id="@+id/imgClear"
                         android:layout_width="0dp"
-                        android:layout_height="45dp"
-                        android:layout_weight="0.2"
-                        android:orientation="vertical"
-                        android:gravity="center"
-                        android:weightSum="2">
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ic_arrow_up"/>
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="0dp"
-                            android:layout_weight="1"
-                            android:src="@drawable/ic_arrow_down"/>
-
-                    </LinearLayout>-->
+                        android:layout_height="30dp"
+                        android:layout_weight="0.1"
+                        android:src="@drawable/ic_clear"/>
 
                 </LinearLayout>
 

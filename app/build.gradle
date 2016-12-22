@@ -32,4 +32,5 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.0'
     compile 'com.fasterxml.jackson.core:jackson-databind:2.5.0'
     compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.borax12.materialdaterangepicker:library:1.9'
 }

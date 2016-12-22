@@ -1,11 +1,11 @@
 package com.evensel.greenlinks.base;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Gravity;
@@ -18,6 +18,10 @@ import com.evensel.greenlinks.account.AccountFragment;
 import com.evensel.greenlinks.notifications.NotificationsFragment;
 import com.evensel.greenlinks.order.OrderListBaseFragment;
 import com.evensel.greenlinks.pickup.PickUpFragment;
+
+/*import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;*/
 
 /**
  * Created by Prishan Maduka on 12/10/2016.
@@ -75,7 +79,7 @@ public class BaseActivity extends AppCompatActivity implements View.OnClickListe
         /*Bundle data = new Bundle();
         data.putInt("JOBID", getIntent().getIntExtra("ID",0));
         fragment.setArguments(data);*/
-        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentManager fragmentManager = getFragmentManager();
         FragmentTransaction fragmentTransaction =
                 fragmentManager.beginTransaction();
         fragmentTransaction.replace(R.id.baseFrame, fragment);

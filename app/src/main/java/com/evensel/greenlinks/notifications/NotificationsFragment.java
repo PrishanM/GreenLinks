@@ -1,9 +1,9 @@
 package com.evensel.greenlinks.notifications;
 
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -64,7 +64,7 @@ public class NotificationsFragment extends Fragment implements View.OnClickListe
         arr2.add("Read");
         arr2.add("Confirmed");
         arr2.add("Updated");
-        arr2.add("Order No.56723WW on 11/11/2016 has changed its status");
+        arr2.add("Order No.56723 on 11/11/2016 has changed its status");
 
         ArrayList<String> arr3 = new ArrayList<>();
         arr3.add("No");

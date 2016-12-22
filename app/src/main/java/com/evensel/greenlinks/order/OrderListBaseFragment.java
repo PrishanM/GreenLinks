@@ -1,23 +1,24 @@
 package com.evensel.greenlinks.order;
 
-import android.app.DatePickerDialog;
+/*import android.app.DatePickerDialog;*/
+
+
+import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.DatePicker;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import com.borax12.materialdaterangepicker.date.DatePickerDialog;
 import com.evensel.greenlinks.R;
 import com.evensel.greenlinks.model.Order;
 import com.evensel.greenlinks.utils.AppController;
-import com.evensel.greenlinks.utils.DatePickerCustom;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -32,8 +33,8 @@ import java.util.List;
 public class OrderListBaseFragment extends Fragment implements View.OnClickListener {
 
     private ListView listView;
-    private ImageView imgFilter;
-    private TextView fromDate,toDate;
+    private ImageView imgFilter,imgClear;
+    private TextView dateRange;
     private OrderListAdapter orderListAdapter;
     private Context context;
     private List<Order> orders;
@@ -57,18 +58,24 @@ public class OrderListBaseFragment extends Fragment implements View.OnClickListe
         orders = new ArrayList<>();
 
         imgFilter = (ImageView)rootView.findViewById(R.id.imgFilter);
-        fromDate = (TextView)rootView.findViewById(R.id.txtFromDate);
-        toDate = (TextView)rootView.findViewById(R.id.txtToDate);
+        imgClear = (ImageView) rootView.findViewById(R.id.imgClear);
+        dateRange = (TextView)rootView.findViewById(R.id.txtDateRange);
 
         listView = (ListView)rootView.findViewById(R.id.listOrderList);
         orderListAdapter = new OrderListAdapter(context,orders);
         listView.setAdapter(orderListAdapter);
 
-        fromDate.setOnClickListener(this);
-        toDate.setOnClickListener(this);
+        imgClear.setOnClickListener(this);
         imgFilter.setOnClickListener(this);
 
         setupFragment();
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+            }
+        });
 
     }
 
@@ -132,51 +139,28 @@ public class OrderListBaseFragment extends Fragment implements View.OnClickListe
 
     @Override
     public void onClick(View v) {
-        if(v.getId()==R.id.txtFromDate){
-            isFromDate = true;
-            showDatePicker();
-        }else if(v.getId()==R.id.txtToDate){
-            isFromDate = false;
-            showDatePicker();
-        }else if(v.getId()==R.id.imgFilter){
-            compareDates(fromDate.getText().toString(),toDate.getText().toString());
+        if(v.getId()==R.id.imgFilter){
+            Calendar now = Calendar.getInstance();
+            DatePickerDialog dpd = DatePickerDialog.newInstance(
+                    dateSetListener,
+                    now.get(Calendar.YEAR),
+                    now.get(Calendar.MONTH),
+                    now.get(Calendar.DAY_OF_MONTH)
+            );
+            dpd.show(getFragmentManager(),"Datepickerdialog");
+        }else if(v.getId()==R.id.imgClear){
+            dateRange.setText("");
+            listView.setAdapter(new OrderListAdapter(context,orders));
+            AppController.setOrders(orders);
+
         }
     }
 
-
-    private void showDatePicker() {
-        DatePickerCustom date = new DatePickerCustom();
-        /**
-         * Set Up Current Date Into dialog
-         */
-        Calendar calender = Calendar.getInstance();
-        Bundle args = new Bundle();
-        args.putInt("YEAR", calender.get(Calendar.YEAR));
-        args.putInt("MONTH", calender.get(Calendar.MONTH));
-        args.putInt("DAY", calender.get(Calendar.DAY_OF_MONTH));
-        date.setArguments(args);
-        /**
-         * Set Call back to capture selected date
-         */
-
-        date.setCallBack(dateListener);
-        date.show(getChildFragmentManager(), "Date Picker");
-    }
-
-    private final DatePickerDialog.OnDateSetListener dateListener = new DatePickerDialog.OnDateSetListener() {
+    private DatePickerDialog.OnDateSetListener dateSetListener = new DatePickerDialog.OnDateSetListener() {
         @Override
-        public void onDateSet(DatePicker view, int year, int monthOfYear,
-                              int dayOfMonth) {
-
-            if(isFromDate){
-                fromDate.setTextColor(getResources().getColor(R.color.colorTextPrimary));
-                fromDate.setText(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
-            }else{
-                toDate.setTextColor(getResources().getColor(R.color.colorTextPrimary));
-                toDate.setText(dayOfMonth+"/"+(monthOfYear+1)+"/"+year);
-            }
-
-
+        public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth, int yearEnd, int monthOfYearEnd, int dayOfMonthEnd) {
+            compareDates(dayOfMonth+"/"+(monthOfYear+1)+"/"+year,dayOfMonthEnd+"/"+(monthOfYearEnd+1)+"/"+yearEnd);
+            dateRange.setText("From : "+dayOfMonth+"/"+(monthOfYear+1)+"/"+year+"  To : "+dayOfMonthEnd+"/"+(monthOfYearEnd+1)+"/"+yearEnd);
         }
     };
 
@@ -187,19 +171,9 @@ public class OrderListBaseFragment extends Fragment implements View.OnClickListe
         try {
             Date fDate = dateFormat.parse(fromDate);
             Date tDate = dateFormat.parse(toDate);
-
-
-            Log.d("FROM : ",dateFormat.format(fDate));
-            Log.d("TO : ",dateFormat.format(tDate));
-
             for(int i=0;i<orders.size();i++){
                 try {
                     Date selectedDate = dateFormat.parse(orders.get(i).getPickupDate());
-
-                    Log.d("SELECTED : ",dateFormat.format(selectedDate));
-
-                    Log.d("ToCompare : ",selectedDate.compareTo(tDate)+"");
-                    Log.d("FromCompare : ",selectedDate.compareTo(fDate)+"");
                     if(selectedDate.compareTo(fDate) * selectedDate.compareTo(tDate)<=0){
                         filteredList.add(orders.get(i));
                     }
@@ -209,9 +183,11 @@ public class OrderListBaseFragment extends Fragment implements View.OnClickListe
 
             }
             listView.setAdapter(new OrderListAdapter(context,filteredList));
+            AppController.setOrders(filteredList);
         }catch (ParseException e) {
             e.printStackTrace();
         }
 
     }
+
 }
